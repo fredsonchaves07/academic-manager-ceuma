@@ -1,33 +1,33 @@
 main{
     margin: 50px auto;
-    width: 85%;
+    width: 75%;
     display: flex;
     justify-content: space-between;
 }
 
 main div img{
-    width: 750px;
+    width: 600px;
+    height: 400px;
 }
 
 main .content{
-    margin-top: 60px;
-    margin-left: 10px;
+    margin-right: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 main .content h1{
-    font-size: 50px;
-    color: #1d458a;
-    padding: 24px 0px;
+    font-size: 65px;
+    color: var(--primary-color);
+    text-align: center;
 }
 
 main .content p{
     font-size: 20px;
     font-family: 'Roboto', sans-serif;
-    line-height: 35px;
-    padding: 20px 0px;
+    line-height: 40px;
+    text-align: center;
+    margin-top: 50px;
 }
 
-main .content{
-    display: flex;
-    flex-direction: column;
-}
