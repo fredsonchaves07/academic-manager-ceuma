@@ -4,6 +4,7 @@
 :root{
     --primary-color: #355389;
     --background-color:  #edf1f8;
+    --secondary-color: #f1a350
 }
 
 *{
@@ -14,6 +15,10 @@
 body{
     background-color: var(--background-color);
     font-family: 'Ubuntu', sans-serif;
+}
+
+a{
+    text-decoration: none;
 }
 
 header nav{
@@ -33,9 +38,34 @@ header nav img{
 
 header nav a{
     color: var(--primary-color);
-    padding: 10px 24px;
+    position: relative;
+    margin-right: 40px;
 }
 
-a{
-    text-decoration: none;
+header nav a.active{
+    color: #23395c;
 }
+
+header nav a:last-child{
+    margin-right: 0;
+}
+
+header nav a:hover{
+    color: var(--secondary-color);
+}
+
+header nav a::after{
+    content: "";
+    width: 0;
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    background-color: var(--secondary-color);
+    height: 2px;
+}
+
+header nav a:hover:after{
+    width: 100%;
+    transition:  200ms ease-in-out 300ms;
+}
+
