@@ -1,0 +1,33 @@
+main{
+    margin: 50px auto;
+    width: 85%;
+    display: flex;
+    justify-content: space-between;
+}
+
+main div img{
+    width: 750px;
+}
+
+main .content{
+    margin-top: 60px;
+    margin-left: 10px;
+}
+
+main .content h1{
+    font-size: 50px;
+    color: #1d458a;
+    padding: 24px 0px;
+}
+
+main .content p{
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    line-height: 35px;
+    padding: 20px 0px;
+}
+
+main .content{
+    display: flex;
+    flex-direction: column;
+}
