@@ -35,24 +35,24 @@
 
                 <div class="field">
                     <label for="cep">Cep</label>
-                    <input type="text" name="cep" required="required" minlength="10" maxlength="10" class="form-control" onkeypress="$(this).mask('00.000-000')">
+                    <input id="cep" type="text" name="cep" required="required" minlength="10" maxlength="10" class="form-control" onkeypress="$(this).mask('00.000-000')">
                 </div>
             </div>
 
             <div class="field-group">
                  <div class="field">
                     <label for="address">Endereço</label>
-                    <input type="text" name="address" required="required">
+                    <input id="address" type="text" name="address" required="required">
                 </div>               
 
                 <div class="field">
                     <label for="addressnumber">Número / Complemento</label>
-                    <input type="text" name="addressnumber">
+                    <input id="addressnumber" type="text" name="addressnumber">
                 </div>
 
                 <div class="field">
                     <label for="neighborhood">Bairro</label>
-                    <input type="text" name="neighborhood" required="required">
+                    <input id="neighborhood" type="text" name="neighborhood" required="required">
                 </div>
             </div>
 
@@ -60,16 +60,15 @@
             <div class="field-group">
                  <div class="field">
                     <label for="uf">Estado</label>
-                    <select name="uf" required="required">
-                        <option value="">Selecione o Estado</option>
+                    <select id="uf" name="uf">
+                        <option>Selecione um estado</option>
                     </select>
-                    <input type="hidden" name="state">
                 </div>               
 
                 <div class="field">
                     <label for="city">Cidade</label>
-                    <select name="city" disabled="disabled" required="required">
-                        <option value="">Selecione a cidade</option>
+                    <select id="city" name="city" disabled="disabled">
+                        <option>Selecione a cidade</option>
                     </select>
                 </div>
             </div>
@@ -92,4 +91,5 @@
     </form>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+    <script src="../js/script.js"></script>
 {% endblock content %}
