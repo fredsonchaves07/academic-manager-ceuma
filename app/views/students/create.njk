@@ -1,0 +1,71 @@
+{% extends "layout.njk" %}
+{% block content %}
+    <form class="form-create" action="/students" method="post">
+        <h1>Cadastro de Aluno</h1>
+        <fieldset>
+            <legend>
+                <h2>Dados do aluno</h2>
+            </legend>
+
+            <div class="field-group">
+                <div class="field">
+                    <label for="name">Nome do aluno</label>
+                    <input type="text" name="name" required="required">
+                </div>
+
+                <div class="field">
+                    <label for="cpf">CPF do aluno</label>
+                    <input type="number" name="cpf" required="required">
+                </div>
+            </div>
+
+            <div class="field-group">
+                 <div class="field">
+                    <label for="fone">Telefone</label>
+                    <input type="number" name="fone" required="required">
+                </div>               
+                 <div class="field">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" required="required">
+                </div>               
+
+                <div class="field">
+                    <label for="cep">Cep</label>
+                    <input type="text" name="cep" required="required">
+                </div>
+            </div>
+
+            <div class="field-group">
+                 <div class="field">
+                    <label for="address">Endereço</label>
+                    <input type="text" name="address" required="required">
+                </div>               
+
+                <div class="field">
+                    <label for="addressnumber">Número / Complemento</label>
+                    <input type="number" name="addressnumber" required="required">
+                </div>
+            </div>
+
+
+            <div class="field-group">
+                 <div class="field">
+                    <label for="uf">Estado</label>
+                    <select name="uf" required="required">
+                        <option value="">Selecione o Estado</option>
+                    </select>
+                    <input type="hidden" name="state">
+                </div>               
+
+                <div class="field">
+                    <label for="city">Cidade</label>
+                    <select name="city" disabled="disabled" required="required">
+                        <option value="">Selecione a cidade</option>
+                    </select>
+                </div>
+            </div>
+
+        </fieldset>
+        <button type="submit">Cadastrar aluno</button>
+    </form>
+{% endblock content %}

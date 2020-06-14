@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/main.css">
+    <title>Academic Manager</title>
+</head>
+<body>
+    <div class="container">
+            <header>
+                <nav>
+                    <div>
+                        <img src="../img/ceuma.png" alt="logo do ceuma">
+                    </div>
+                    <div>
+                        <a href="/" class="active">Home</a>
+                        <a href="/students">Alunos</a>
+                        <a href="">Cursos</a>
+                        <a href="">Institucional</a>
+                    </div>
+                </nav>
+            </header>
+            <main>
+                {% block content %}
+                {% endblock content %}
+            </main>
+    </div>
+</body>
+</html>
