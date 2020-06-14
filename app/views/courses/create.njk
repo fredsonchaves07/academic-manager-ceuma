@@ -1,1 +1,41 @@
 {% extends "layout.njk" %}
+{% block content %}
+    <form action="/courses" method="post">
+        <h1>Cadastro de Curso</h1>
+        <fieldset>
+            <legend>
+                <h2>Dados do curso</h2>
+            </legend>
+
+            <div class="field-group">
+                <div class="field">
+                    <label for="coursename">Nome do Curso</label>
+                    <input type="text" name="coursename" required="required">
+                </div>
+            </div>
+
+            <div class="field-group">
+                <div class="field">
+                    <label for="ch">Carga Horária</label>
+                    <input type="number" name="ch" required="required">
+                </div>
+
+                <div class="field">
+                    <label for="typecourse">Tipo de Curso</label>
+                    <div class="field-radio">
+                        <span>
+                            <input type="radio" name="typecourse"  value="Presencial">Presencial
+                        </span>
+                        
+                        <span>
+                            <input type="radio" name="typecourse" value="À distância">À distância
+                        </span>
+                    </div>
+                </div>
+            </div>    
+            
+
+            
+        <button type="submit">Cadastrar Curso</button>
+    </form>
+{% endblock content %}

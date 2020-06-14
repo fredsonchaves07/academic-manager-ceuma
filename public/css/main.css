@@ -157,6 +157,7 @@ form .field-group .field{
     width:  100px
 }
 
+
 form .field-group .field label{
     margin-bottom: 20px;
     font-weight: bold;
@@ -171,6 +172,26 @@ form .field-group .field input, select{
 
 form .field-group .field + .field{
     margin-left: 24px;
+}
+
+form fieldset .field-group .field .field-radio{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+form fieldset .field-group .field .field-radio span{
+    font-size: 14px;
+    font-weight: bold;
+    color: rgba(1, 1, 1, 0.6);
+    width: 120px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: var(--secondary-color);
+}
+
+form fieldset .field-group .field .field-radio span input{
+    margin-right: 10px;
 }
 
 form select{
