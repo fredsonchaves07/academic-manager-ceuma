@@ -1,6 +1,6 @@
 {% extends "layout.njk" %}
 {% block content %}
-    <form class="form-create" action="/students" method="post">
+    <form action="/students" method="post">
         <h1>Cadastro de Aluno</h1>
         <fieldset>
             <legend>
@@ -12,26 +12,30 @@
                     <label for="name">Nome do aluno</label>
                     <input type="text" name="name" required="required">
                 </div>
+            </div>
+
+            <div class="field-group">
+                <div class="field">
+                    <label for="cpf">CPF</label>
+                    <input type="text" name="cpf" required="required" minlength="14" maxlength="14" class="form-control" onkeypress="$(this).mask('000.000.000-00');">
+                </div>
 
                 <div class="field">
-                    <label for="cpf">CPF do aluno</label>
-                    <input type="number" name="cpf" required="required">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" required="required">
                 </div>
-            </div>
+            </div>    
+            
 
             <div class="field-group">
                  <div class="field">
                     <label for="fone">Telefone</label>
-                    <input type="number" name="fone" required="required">
-                </div>               
-                 <div class="field">
-                    <label for="email">Email</label>
-                    <input type="email" name="email" required="required">
-                </div>               
+                    <input type="text" name="fone" required="required" minlength="14" maxlength="15" class="form-control" onkeypress="$(this).mask('(00) 0000-00009')">
+                </div>                         
 
                 <div class="field">
                     <label for="cep">Cep</label>
-                    <input type="text" name="cep" required="required">
+                    <input type="text" name="cep" required="required" minlength="10" maxlength="10" class="form-control" onkeypress="$(this).mask('00.000-000')">
                 </div>
             </div>
 
@@ -43,7 +47,12 @@
 
                 <div class="field">
                     <label for="addressnumber">Número / Complemento</label>
-                    <input type="number" name="addressnumber" required="required">
+                    <input type="text" name="addressnumber">
+                </div>
+
+                <div class="field">
+                    <label for="neighborhood">Bairro</label>
+                    <input type="text" name="neighborhood" required="required">
                 </div>
             </div>
 
@@ -66,6 +75,21 @@
             </div>
 
         </fieldset>
+        <fieldset>
+            <legend>
+                <h2>Dados do Curso</h2>
+            </legend>
+            <div class="field-group">
+                <div class="field">
+                    <label for="course">Curso</label>
+                    <select name="course" required="required">
+                        <option value="">Selecione um curso</option>
+                    </select>
+                </div>
+            </div>
+        </fieldset>
         <button type="submit">Cadastrar aluno</button>
     </form>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
 {% endblock content %}
