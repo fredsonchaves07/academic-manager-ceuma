@@ -1,3 +1,5 @@
+const Course = require('../models/Course')
+
 module.exports = {
     index(req, res){
         return res.render('courses/index')
@@ -15,6 +17,13 @@ module.exports = {
                 return res.send('Please, fill all fieds')
             }
         }
+
+        Course.create(req.body, (course) =>{
+            return res.redirect('/')
+            /*
+            return res.redirect(`course/${course.cod}`)
+            */
+        })
 
     }
 }

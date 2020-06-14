@@ -192,6 +192,7 @@ form fieldset .field-group .field .field-radio span{
 
 form fieldset .field-group .field .field-radio span input{
     margin-right: 10px;
+    outline: none;
 }
 
 form select{
