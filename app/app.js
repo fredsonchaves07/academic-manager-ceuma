@@ -1,7 +1,7 @@
 const express = require('express')
 const nunjucks = require('nunjucks')
 const router = require('./router')
-
+const methodOverride = require('method-override')
 
 const server = express()
 
@@ -13,7 +13,7 @@ nunjucks.configure('app/views', {
 
 
 server.use(express.static('public'))
-
+server.use(methodOverride('_method'))
 server.use(router)
 
 server.listen(5000, function(){

@@ -18,4 +18,6 @@ routes.get('/students/create', students.create)
 routes.get('/courses', courses.index)
 routes.get('/courses/create', courses.create)
 
+routes.post('/post', courses.post)
+
 module.exports = routes

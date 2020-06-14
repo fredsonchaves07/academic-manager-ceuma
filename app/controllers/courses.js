@@ -5,5 +5,9 @@ module.exports = {
     
     create(req, res){
         return res.render('courses/create')
+    },
+
+    post(req, res){
+        return 
     }
 }
