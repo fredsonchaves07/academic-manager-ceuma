@@ -8,6 +8,7 @@
                     <th>Curso</th>
                     <th>Ch</th>
                     <th>Tipo</th>
+                    <th>Alunos</th>
                     <th>Ação</th>
                 </tr>
             </thead>
@@ -22,6 +23,9 @@
                         </td>
                         <td>
                             <span>{{course.typecourse}}</span>
+                        </td>
+                        <td>
+                            {{course.total_students}}
                         </td>
                         <td><a href="/courses/{{course.cod}}">Ver</a></td>
                     </tr>

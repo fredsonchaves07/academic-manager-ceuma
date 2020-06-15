@@ -1,6 +1,6 @@
 {% extends "layout.njk" %}
 {% block content %}
-    <form action="/students" method="post">
+    <form action="/students" method="post" class="card">
         <h1>Cadastro de Aluno</h1>
         <fieldset>
             <legend>
@@ -81,9 +81,11 @@
             <div class="field-group">
                 <div class="field">
                     <label for="course">Curso</label>
-                    <select name="course" required="required">
-                        <option value="">Selecione um curso</option>
-                    </select>
+                    {% for course in courses %}
+                        <select name="course" required="required">
+                            <option id="{{course.cod}}" name="course_cod" value="">{{course.coursename}}</option>
+                        </select>
+                    {% endfor %}
                 </div>
             </div>
         </fieldset>
