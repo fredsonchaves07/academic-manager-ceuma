@@ -22,5 +22,5 @@ routes.get('/courses/:cod/edit', courses.edit)
 
 routes.post('/courses', courses.post)
 routes.put('/courses', courses.put)
-
+routes.delete('/courses', courses.delete)
 module.exports = routes

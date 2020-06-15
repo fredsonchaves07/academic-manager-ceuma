@@ -211,6 +211,13 @@ main .content p{
     display: inline-block;
     text-decoration: none;
     text-align: center;
+    font-family: 'Roboto', sans-serif;
+    cursor: pointer;
+    outline: none;
+}
+
+#button-delete{
+    background-color: lightcoral;
 }
 
 /*
@@ -221,10 +228,5 @@ main .content p{
     box-sizing: border-box;
 }
 */
-
-.card button:hover{
-    background-color: #2fb86e;
-}
-
 
 

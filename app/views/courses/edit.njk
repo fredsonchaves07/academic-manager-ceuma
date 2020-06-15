@@ -1,51 +1,70 @@
 {% extends "layout.njk" %}
 {% block content %}
-    <form action="/courses?_method=PUT" method="POST" class="card" id="edit-form">
-        <h1>Detalhes do Curso</h1>
-        <fieldset>
-            <legend>
-                <h2>Dados do curso</h2>
-            </legend>
+    <section class="card">
+        <form action="/courses?_method=PUT" method="post" id="edit-form">
+            <h1>Detalhes do Curso</h1>
+            <fieldset>
+                <legend>
+                    <h2>Dados do curso</h2>
+                </legend>
 
-            <div class="field-group">
-                <div class="field">
-                    <label for="coursename">Nome do Curso</label>
-                    <input type="text" name="coursename" required="required" value="{{course.coursename}}">
-                </div>
-            </div>
-
-            <div class="field-group">
-                <div class="field">
-                    <label for="ch">Carga Horária</label>
-                    <input type="number" name="ch" required="required" value="{{course.ch}}">
-                </div>
-
-                <div class="field">
-                    <label for="typecourse">Tipo de Curso</label>
-                    <div class="field-radio">
-                        <span>
-                            <input type="radio" 
-                                   name="typecourse"  
-                                   value="Presencial"
-                                   {% if course.typecourse == 'Presencial'%}
-                                            checked
-                                   {% endif %}
-                                >Presencial
-                        </span>
-                        
-                        <span>
-                            <input type="radio" 
-                                   name="typecourse"  
-                                   value="À distância"
-                                   {% if course.typecourse == 'À distância'%}
-                                            checked
-                                   {% endif %}
-                                >À distância
-                        </span>
+                <div class="field-group">
+                    <div class="field">
+                        <label for="coursename">Nome do Curso</label>
+                        <input type="text" name="coursename" required="required" value="{{course.coursename}}">
                     </div>
                 </div>
-            </div>
-        <input type="hidden" name="cod" value="{{course.cod}}">
-        <button type="submit" for="edit-form">Editar Curso</button>
-    </form>
+
+                <div class="field-group">
+                    <div class="field">
+                        <label for="ch">Carga Horária</label>
+                        <input type="number" name="ch" required="required" value="{{course.ch}}">
+                    </div>
+
+                    <div class="field">
+                        <label for="typecourse">Tipo de Curso</label>
+                        <div class="field-radio">
+                            <span>
+                                <input type="radio" 
+                                    name="typecourse"  
+                                    value="Presencial"
+                                    {% if course.typecourse == 'Presencial'%}
+                                                checked
+                                    {% endif %}
+                                    >Presencial
+                            </span>
+                            
+                            <span>
+                                <input type="radio" 
+                                    name="typecourse"  
+                                    value="À distância"
+                                    {% if course.typecourse == 'À distância'%}
+                                                checked
+                                    {% endif %}
+                                    >À distância
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            <input type="hidden" name="cod" value="{{course.cod}}">
+            <button type="submit" for="edit-form">Editar Curso</button>
+
+        </form>
+        <form action="/courses?_method=DELETE" method="post" id="delete-form">
+            <input type="hidden" name="cod" value="{{course.cod}}">
+            <button type="submit" for="delete-form" id="button-delete">Remover Curso</button>
+        </form>
+    </section>
+    <script>
+        const formDelete = document.getElementById('delete-form')
+        formDelete.addEventListener('submit', function(event){
+        const confirmation = confirm('Deseja deletar?')
+
+        if(!confirmation){
+            event.preventDefault()
+        }
+    })
+
+    </script>
+
 {% endblock content %}

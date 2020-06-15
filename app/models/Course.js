@@ -73,5 +73,15 @@ module.exports = {
 
             callback()
         })
+    },
+
+    delete(cod, callback){
+        db.query(`DELETE FROM courses WHERE cod = $1`, [cod], (err, results) =>{
+            if(err){
+                throw `Database error! ${err}` 
+            }
+
+            callback()
+        })
     }
 }

@@ -20,7 +20,7 @@ module.exports = {
 
         Course.create(req.body, (course) =>{
 
-            return res.redirect(`course/${course.cod}`)
+            return res.redirect(`courses/${course.cod}`)
             
         })
 
@@ -56,6 +56,12 @@ module.exports = {
 
         Course.update(req.body, () =>{
             return res.redirect(`courses/${req.body.cod}`)
+        })
+    },
+
+    delete(req, res){
+        Course.delete(req.body.cod, () =>{
+            return res.redirect('/')
         })
     }
 }
