@@ -1,7 +1,7 @@
 {% extends "layout.njk" %}
 {% block content %}
-    <form action="/courses" method="post" class="card">
-        <h1>Cadastro de Curso</h1>
+    <section class="card">
+        <h1>Detalhes do Curso</h1>
         <fieldset>
             <legend>
                 <h2>Dados do curso</h2>
@@ -10,32 +10,26 @@
             <div class="field-group">
                 <div class="field">
                     <label for="coursename">Nome do Curso</label>
-                    <input type="text" name="coursename" required="required">
+                    <div class="fielddata">{{course.coursename}}</div>
                 </div>
             </div>
 
             <div class="field-group">
                 <div class="field">
                     <label for="ch">Carga Horária</label>
-                    <input type="number" name="ch" required="required">
+                    <div class="fielddata">{{course.ch}}</div>
                 </div>
 
                 <div class="field">
                     <label for="typecourse">Tipo de Curso</label>
                     <div class="field-radio">
                         <span>
-                            <input type="radio" name="typecourse"  value="Presencial">Presencial
-                        </span>
-                        
-                        <span>
-                            <input type="radio" name="typecourse" value="À distância">À distância
+                                {{"Presencial" if course.typecourse == "Presencial" else "À distância" }}
                         </span>
                     </div>
                 </div>
             </div>    
             
-
-            
-        <button type="submit">Cadastrar Curso</button>
-    </form>
+        <a href="/courses/{{course.cod}}/edit">Editar Curso</a> 
+    </section>
 {% endblock content %}

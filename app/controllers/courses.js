@@ -19,11 +19,43 @@ module.exports = {
         }
 
         Course.create(req.body, (course) =>{
-            return res.redirect('/')
-            /*
+
             return res.redirect(`course/${course.cod}`)
-            */
+            
         })
 
+    },
+
+    show(req, res){
+        Course.find(req.params.cod, (course) => {
+            if(!course){
+                return res.send('Course not found!')
+            }
+
+            return res.render('courses/show', {course})
+        })
+    },
+
+    edit(req, res){
+        Course.find(req.params.cod, (course) => {
+            if(!course){
+                return res.send('Course not found!')
+            }
+            return res.render('courses/edit', {course})
+        })
+    },
+
+    put(req, res){
+        const keys = Object.keys(req.body)
+
+        for (key of keys) {
+            if (req.body[key] == "") {
+                return res.send('Please, fill all fieds')
+            }
+        }
+
+        Course.update(req.body, () =>{
+            return res.redirect(`courses/${req.body.cod}`)
+        })
     }
 }

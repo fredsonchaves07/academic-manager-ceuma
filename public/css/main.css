@@ -17,10 +17,6 @@ body{
     font-family: 'Ubuntu', sans-serif;
 }
 
-a{
-    text-decoration: none;
-}
-
 header nav{
     padding: 20px 0;
     color: white;
@@ -40,6 +36,7 @@ header nav a{
     color: var(--primary-color);
     position: relative;
     margin-right: 40px;
+    text-decoration: none;
 }
 
 header nav a.active{
@@ -116,40 +113,40 @@ main .content p{
 }
 
 /* Students/index */
-/* Students/Create */
-form{
+/* Formulário e visualização dos dados */
+.card{
     background-color: white;
     margin: 0px auto;
     padding: 40px 60px;
     width: 60% ;
 }
 
-form fieldset{
+.card fieldset{
     border: none;
     margin-bottom: 40px;
 }
 
-form fieldset legend{
+.card fieldset legend{
     margin-bottom: 30px;
 }
 
-form h1{
+.card h1{
     margin-bottom: 60px;
     color: var(--primary-color);
     font-size: 34px;
 }
 
-form h2{
+.card h2{
     color: var(--primary-color);
 }
 
-form .field-group{
+.card .field-group{
     font-family: 'Roboto', sans-serif;
     display: flex;
 
 }
 
-form .field-group .field{
+.card .field-group .field{
     display: flex;
     flex-direction: column;
     flex: 1;
@@ -158,29 +155,29 @@ form .field-group .field{
 }
 
 
-form .field-group .field label{
+.card .field-group .field label{
     margin-bottom: 20px;
     font-weight: bold;
 }
 
-form .field-group .field input, select{
+.card .field-group .field input, select, .field .fielddata{
     padding: 10px 20px;
     border-radius: 8px;
     background-color: #f0f0f5;
     border: 0;
 }
 
-form .field-group .field + .field{
+.card .field-group .field + .field{
     margin-left: 24px;
 }
 
-form fieldset .field-group .field .field-radio{
+.card fieldset .field-group .field .field-radio{
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-form fieldset .field-group .field .field-radio span{
+.card fieldset .field-group .field .field-radio span{
     font-size: 14px;
     font-weight: bold;
     color: rgba(1, 1, 1, 0.6);
@@ -190,20 +187,20 @@ form fieldset .field-group .field .field-radio span{
     background-color: var(--secondary-color);
 }
 
-form fieldset .field-group .field .field-radio span input{
+.card fieldset .field-group .field .field-radio span input{
     margin-right: 10px;
     outline: none;
 }
 
-form select{
+.card select{
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
 }
 
-form button[type="submit"]{
+.card button[type="submit"], .card a{
     width: 100%;
-    height: 50px;
+    padding: 15px;
     background-color: var(--primary-color);
     border-radius: 8px;
     color: white;
@@ -211,9 +208,21 @@ form button[type="submit"]{
     font-size: 16px;
     border: 0;
     margin-top: 30px;
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
 }
 
-form button:hover{
+/*
+.card a{
+    
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box;
+}
+*/
+
+.card button:hover{
     background-color: #2fb86e;
 }
 

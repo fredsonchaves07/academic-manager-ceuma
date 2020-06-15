@@ -37,5 +37,44 @@ module.exports = {
 
             callback(results.rows[0])
         })
+    },
+
+    find(id, callback){
+        db.query(`SELECT * 
+                  FROM courses 
+                  WHERE cod = $1`, [id], (err, results) =>{
+                    if(err){
+                        console.log(err)
+                        return
+                    }
+
+                    callback(results.rows[0])
+        })
+    },
+
+    update(data, callback){
+        const query = `
+            UPDATE courses SET
+            coursename = $1,
+            ch = $2,
+            typecourse = $3
+            WHERE cod = $4
+        ` 
+
+        const values = [
+            data.coursename,
+            data.ch,
+            data.typecourse,
+            data.cod
+        ]
+
+        db.query(query, values, (err, results) =>{
+            if(err){
+                console.log(err)
+                return
+            }
+
+            callback()
+        })
     }
 }
