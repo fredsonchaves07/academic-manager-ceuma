@@ -1,18 +1,35 @@
 {% extends "layout.njk" %}
 {% block content %}
-    <table width="100%">
-        <thead>
-            <tr>RA</tr>
-            <tr>Aluno</tr>
-            <tr>Curso</tr>
-            <tr>Ação<tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>
-                    
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="table table-container">
+        <a href="/students/create">Novo Curso</a>
+        <table width="100%">
+            <thead>
+                <tr>
+                    <th>Aluno</th>
+                    <th>CPF</th>
+                    <th>Curso</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for student in students %}
+                    <tr>
+                        <td>
+                            {{student.name}}
+                        </td>
+                        <td>
+                            {{student.cpf}}
+                        </td>
+                        <td>
+                            <span>{{student.typecourse}}</span>
+                        </td>
+                        <td>
+                            {{course.total_students}}
+                        </td>
+                        <td><a href="/students/{{students.cod}}">Ver</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 {% endblock content %}
