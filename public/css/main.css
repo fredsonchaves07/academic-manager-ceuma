@@ -39,10 +39,6 @@ header nav a{
     text-decoration: none;
 }
 
-header nav a.active{
-    color: #23395c;
-}
-
 header nav a:last-child{
     margin-right: 0;
 }
@@ -198,7 +194,7 @@ main .content p{
     appearance: none;
 }
 
-.card button[type="submit"], .card a{
+.card button[type="submit"], .card .button{
     width: 100%;
     padding: 15px;
     background-color: var(--primary-color);
@@ -220,6 +216,82 @@ main .content p{
     background-color: lightcoral;
 }
 
+
+/* Página principal de index */
+.table{
+    background-color: white;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.table-container{
+    display: block;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+.table-container table{
+    border-spacing: 0;
+}
+
+.table-container thead{
+    text-align: left;
+}
+
+td, th{
+    padding: 16px;
+    border-bottom: 1px solid #d9d9d9;
+}
+
+th{
+    text-transform: uppercase;
+    color: #777777;
+    font-size: 14px;
+}
+
+tbody tr:last-child td{
+    border-bottom: none;
+}
+
+tbody tr td:first-child span{
+    width: 48px;
+    height: 48px;
+    background-position: center;
+    background-size: cover;
+    border-radius: 50%;
+    box-shadow: 3px 1px 6px -4px black;
+    border: 2px solid white;
+}
+
+tbody tr td:nth-child(3) span{
+    display: inline-block;
+    padding: 8px;
+    background-color: var(--secondary-color);
+    border-radius: 8px;
+    margin-right: 8px;
+    color: rgba(1, 1, 1, 0.6);
+    font-size: 14px;
+}
+
+tbody tr td:last-child a, .table-container >a{
+    background-color: var(--primary-color);
+    padding: 8px 16px;
+    text-decoration: none;
+    color: white;
+    font-size: 12px;
+    border-radius: 4px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+}
+
+.table-container >a{
+    margin-bottom: 16px;
+    display: inline-block;
+}
+
+.table-container thead tr th:last-child, td:last-child{
+    text-align: center;
+}
 /*
 .card a{
     

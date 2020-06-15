@@ -2,7 +2,9 @@ const Course = require('../models/Course')
 
 module.exports = {
     index(req, res){
-        return res.render('courses/index')
+        Course.all((courses) =>{
+            return res.render('courses/index', {courses})
+        })
     },
     
     create(req, res){
@@ -20,7 +22,7 @@ module.exports = {
 
         Course.create(req.body, (course) =>{
 
-            return res.redirect(`courses/${course.cod}`)
+            return res.redirect(`/courses`)
             
         })
 
@@ -55,13 +57,13 @@ module.exports = {
         }
 
         Course.update(req.body, () =>{
-            return res.redirect(`courses/${req.body.cod}`)
+            return res.redirect(`/courses`)
         })
     },
 
     delete(req, res){
         Course.delete(req.body.cod, () =>{
-            return res.redirect('/')
+            return res.redirect('/courses')
         })
     }
 }

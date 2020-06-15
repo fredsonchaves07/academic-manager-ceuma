@@ -1,0 +1,32 @@
+{% extends "layout.njk" %}
+{% block content %}
+    <div class="table table-container">
+        <a href="/courses/create">Novo Curso</a>
+        <table width="100%">
+            <thead>
+                <tr>
+                    <th>Curso</th>
+                    <th>Ch</th>
+                    <th>Tipo</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for course in courses %}
+                    <tr>
+                        <td>
+                            {{course.coursename}}
+                        </td>
+                        <td>
+                            {{course.ch}}
+                        </td>
+                        <td>
+                            <span>{{course.typecourse}}</span>
+                        </td>
+                        <td><a href="/courses/{{course.cod}}">Ver</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock content %}
