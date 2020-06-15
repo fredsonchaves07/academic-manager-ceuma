@@ -21,12 +21,9 @@
                             {{student.cpf}}
                         </td>
                         <td>
-                            <span>{{student.typecourse}}</span>
+                            <span>{{student.coursename}}</span>
                         </td>
-                        <td>
-                            {{course.total_students}}
-                        </td>
-                        <td><a href="/students/{{students.cod}}">Ver</a></td>
+                        <td><a href="/students/{{student.cod}}">Ver</a></td>
                     </tr>
                 {% endfor %}
             </tbody>

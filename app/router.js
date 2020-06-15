@@ -12,6 +12,12 @@ routes.get('/', (req, res) =>{
 /* Students route */
 routes.get('/students', students.index)
 routes.get('/students/create', students.create)
+routes.get('/students/:cod', students.show)
+routes.get('/students/:cod/edit', students.edit)
+
+routes.post('/students', students.post)
+/*routes.put('/students', students.put)
+routes.delete('/students', students.delete)*/
 
 
 /* Courses route*/

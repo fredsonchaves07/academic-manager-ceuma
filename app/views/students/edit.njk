@@ -1,0 +1,109 @@
+{% extends "layout.njk" %}
+{% block content %}
+    <section class="card">
+        <form action="/students?_method=PUT" method="post" id="edit-form">
+            <h1>Detalhes do Aluno</h1>
+            <fieldset>
+                <legend>
+                    <h2>Dados do aluno</h2>
+                </legend>
+
+                <div class="field-group">
+                    <div class="field">
+                        <label for="name">Nome do Aluno</label>
+                        <input type="text" name="name" required="required" value="{{student.name}}">
+                    </div>
+                </div>
+
+                <div class="field-group">
+                    <div class="field">
+                        <label for="cpf">CPF</label>
+                        <input type="text" name="cpf" required="required" value="{{student.cpf}}" minlength="14" maxlength="14" class="form-control" onkeypress="$(this).mask('000.000.000-00');" >
+                    </div>
+
+                    <div class="field">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" required="required" value="{{student.email}}">
+                    </div>
+                </div>    
+                
+
+                <div class="field-group">
+                    <div class="field">
+                        <label for="fone">Telefone</label>
+                        <input type="text" name="fone" required="required" minlength="14" maxlength="15" class="form-control" onkeypress="$(this).mask('(00) 0000-00009')" value="{{student.fone}}">
+                    </div>                         
+
+                    <div class="field">
+                        <label for="cep">Cep</label>
+                        <input id="cep" type="text" name="cep" required="required" minlength="10" maxlength="10" class="form-control" onkeypress="$(this).mask('00.000-000')" value="{{student.cep}}">
+                    </div>
+                </div>
+
+                <div class="field-group">
+                    <div class="field">
+                        <label for="address">Endereço</label>
+                        <input id="address" type="text" name="address" required="required" value="{{student.address}}">
+                    </div>               
+
+                    <div class="field">
+                        <label for="addressnumber">Número / Complemento</label>
+                        <input id="addressnumber" type="text" name="addressnumber" value="{{student.addressnumber}}">
+                    </div>
+
+                    <div class="field">
+                        <label for="neighborhood">Bairro</label>
+                        <input id="neighborhood" type="text" name="neighborhood" required="required" value="{{student.neighborhood}}">
+                    </div>
+                </div>
+
+
+                <div class="field-group">
+                    <div class="field">
+                        <label for="uf">Estado</label>
+                        <select id="uf" name="uf">
+                            <option>{{student.uf}}</option>
+                        </select>
+                    </div>               
+
+                    <div class="field">
+                        <label for="city">Cidade</label>
+                        <select id="city" name="city" disabled="disabled">
+                            <option>{{student.city}}</option>
+                        </select>
+                    </div>
+                </div>
+
+            </fieldset>
+            <fieldset>
+                <legend>
+                    <h2>Dados do Curso</h2>
+                </legend>
+                <div class="field-group">
+                    <div class="field">
+                        <label for="course">Curso</label>
+                        {% for course in courses %}
+                            <select name="course" required="required">
+                                <option id="{{course.cod}}" value="{{course.cod}}"{% if course.cod == student.course_cod %}selected{% endif %}>{{course.coursename}}</option>
+                            </select>
+                        {% endfor %}
+                    </div>
+                </div>
+            </fieldset>
+            <input type="hidden" name="cod" value="{{student.cod}}">
+            <button type="submit">Editar aluno</button>
+        </form>
+
+
+        </form>
+        <form action="/students?_method=DELETE" method="post" id="delete-form">
+            <input type="hidden" name="cod" value="{{student.cod}}">
+            <button type="submit" for="delete-form" id="button-delete">Remover Aluno</button>
+        </form>
+    </section>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+    <script src="../../js/script.js"></script>
+{% endblock content %}

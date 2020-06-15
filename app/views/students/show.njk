@@ -1,0 +1,74 @@
+{% extends "layout.njk" %}
+{% block content %}
+    <section class="card">
+        <h1>Detalhes do Aluno</h1>
+        <fieldset>
+            <legend>
+                <h2>Dados do aluno</h2>
+            </legend>
+
+            <div class="field-group">
+                <div class="field">
+                    <label for="name">Nome do Aluno</label>
+                    <div class="fielddata">{{student.name}}</div>
+                </div>
+            </div>
+
+            <div class="field-group">
+                <div class="field">
+                    <label for="cpf">CPF</label>
+                    <div class="fielddata">{{student.cpf}}</div>
+                </div>
+
+                <div class="field">
+                    <label for="email">Email</label>
+                    <div class="fielddata">{{student.email}}</div>
+                </div>
+            </div>
+
+            <div class="field-group">
+                <div class="field">
+                    <label for="fone">Telefone</label>
+                    <div class="fielddata">{{student.fone}}</div>
+                </div>
+
+                <div class="field">
+                    <label for="cep">Cep</label>
+                    <div class="fielddata">{{student.cep}}</div>
+                </div>
+            </div>
+            
+            <div class="field-group">
+                <div class="field">
+                    <label for="address">Endereço</label>
+                    <div class="fielddata">{{student.address}}</div>
+                </div>
+
+                <div class="field">
+                    <label for="addressnumber">Número / Complemento</label>
+                    <div class="fielddata">{{student.addressnumber}}</div>
+                </div>
+            </div>  
+
+            <div class="field-group">
+                <div class="field">
+                    <label for="neighborhood">Bairro</label>
+                    <div class="fielddata">{{student.neighborhood}}</div>
+                </div>
+            </div>  
+
+            <div class="field-group">
+                <div class="field">
+                    <label for="uf">Estado</label>
+                    <div class="fielddata">{{student.uf}}</div>
+                </div>
+
+                <div class="field">
+                    <label for="city">Cidade</label>
+                    <div class="fielddata">{{student.city}}</div>
+                </div>
+            </div>  
+            
+        <a href="/students/{{student.cod}}/edit" class="button">Editar Aluno</a> 
+    </section>
+{% endblock content %}

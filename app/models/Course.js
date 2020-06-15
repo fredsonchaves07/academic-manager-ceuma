@@ -5,7 +5,7 @@ module.exports = {
         db.query(`SELECT courses.*, count(students) AS total_students
                   FROM courses
                   LEFT JOIN students
-                  ON students.cod = courses.cod
+                  ON students.course_cod = courses.cod
                   GROUP BY courses.cod
                   ORDER BY total_students DESC`, (err, results) => {
             if(err){

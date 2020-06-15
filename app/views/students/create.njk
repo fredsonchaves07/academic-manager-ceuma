@@ -9,7 +9,7 @@
 
             <div class="field-group">
                 <div class="field">
-                    <label for="name">Nome do aluno</label>
+                    <label for="name">Nome do Aluno</label>
                     <input type="text" name="name" required="required">
                 </div>
             </div>
@@ -83,7 +83,7 @@
                     <label for="course">Curso</label>
                     {% for course in courses %}
                         <select name="course" required="required">
-                            <option id="{{course.cod}}" value="">{{course.coursename}}</option>
+                            <option id="{{course.cod}}" value="{{course.cod}}">{{course.coursename}}</option>
                         </select>
                     {% endfor %}
                 </div>

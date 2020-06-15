@@ -1,11 +1,24 @@
 const db = require('../config/db')
 
 module.exports = {
+    all(callback){
+        db.query(`SELECT students.*, courses.coursename
+                  FROM students 
+                  INNER JOIN courses 
+                  on courses.cod = students.course_cod
+                  `, (err, results) => {
+            if(err){
+                throw `Database error! ${err}` 
+            }
+
+            callback(results.rows)
+        })
+    },
 
     create(data, callback) {
         const query = `
             INSERT INTO students(
-                name
+                name,
                 cpf,
                 email,
                 fone,
@@ -36,12 +49,26 @@ module.exports = {
             new Date().toISOString(),
         ]
 
+        console.log(data)
+
         db.query(query, values, (err, results) => {
             if(err){
-                throw 'Database error!'
+                throw `Database error! ${err}` 
             }
 
             callback(results.rows[0])
+        })
+    },
+
+    find(id, callback){
+        db.query(`SELECT * 
+                  FROM students 
+                  WHERE cod = $1`, [id], (err, results) =>{
+                    if(err){
+                        throw `Database error! ${err}` 
+                    }
+
+                    callback(results.rows[0])
         })
     },
 
