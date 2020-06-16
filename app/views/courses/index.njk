@@ -1,7 +1,11 @@
 {% extends "layout.njk" %}
 {% block content %}
     <div class="table table-container">
-        <a href="/courses/create">Novo Curso</a>
+        <div class="header">
+            <a href="/courses/create" class="button">Novo Curso</a>
+            <input type="hidden" >
+            <a download="DataCourses.xls" href="#" onclick="return ExcellentExport.excel(this, 'tbStudent', 'Dados de Estudante');">Exportar</a>
+        </div>
         <table width="100%">
             <thead>
                 <tr>
@@ -33,4 +37,11 @@
             </tbody>
         </table>
     </div>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/excellentexport@3.4.3/dist/excellentexport.min.js"></script>
+    <script src="http://requirejs.org/docs/release/2.3.6/minified/require.js"></script>
+    <script>
+        require(['dist/excellentexport'], function(ee) {
+            window.ExcellentExport = ee;
+        });
+    </script>
 {% endblock content %}

@@ -301,11 +301,10 @@ tbody tr td:last-child a, .table-container >a{
 
 /* Filtros */
 .table-container .header{
-    display: grid;
-    grid-template-columns: 100px 1fr 100px;
+    display: flex;
     align-items: center;
     margin-bottom: 32px;
-    gap: 30px;
+    justify-content: space-between
 }
 
 .table-container .header a, 
@@ -323,19 +322,17 @@ tbody tr td:last-child a, .table-container >a{
     text-align: center;
 }
 
-.table-container .header a{
-
-}
-
 .table-container .header form{
     display: grid;
-    grid-template-columns: 1fr 120px;
+    grid-template-columns: 2fr 1fr;
     align-items: center;
-    grid-gap: 8px;
+    grid-gap: 10px;
+    margin-left: 45%;
 }
 
 .table-container .header form input{
     border: 1px solid #eee;
     padding: 4px 8px;
     box-sizing: border-box;
+
 }

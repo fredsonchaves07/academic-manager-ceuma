@@ -50,6 +50,7 @@ module.exports = {
             if(!student){
                 return res.send('Student not found!')
             }
+            console.log(student)
 
             Student.courseSelect((option) => {
                 return res.render('students/edit', {student, courses: option})
