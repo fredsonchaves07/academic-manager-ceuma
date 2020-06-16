@@ -15,6 +15,22 @@ module.exports = {
         })
     },
 
+    findBy(filter, callback){
+
+        db.query(`SELECT students.*, courses.coursename
+                  FROM students 
+                  LEFT JOIN courses 
+                  on courses.cod = students.course_cod
+                  WHERE courses.coursename ILIKE '%${filter}%'
+                  `, (err, results) => {
+            if(err){
+                throw `Database error! ${err}` 
+            }
+
+            callback(results.rows)
+        })        
+    },
+
     create(data, callback) {
         const query = `
             INSERT INTO students(
