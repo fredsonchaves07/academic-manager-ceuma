@@ -81,7 +81,6 @@ main{
     }
 }
 
-
 main div img{
     width: 600px;
     height: 400px;
@@ -108,7 +107,6 @@ main .content p{
     margin-top: 50px;
 }
 
-/* Students/index */
 /* Formulário e visualização dos dados */
 .card{
     background-color: white;
@@ -149,7 +147,6 @@ main .content p{
     margin-bottom: 24px;
     width:  100px
 }
-
 
 .card .field-group .field label{
     margin-bottom: 20px;
@@ -214,6 +211,14 @@ main .content p{
 
 #button-delete{
     background-color: lightcoral;
+}
+#delete-form span{
+    margin-top: 20px;
+    display: inline-block;
+}
+#delete-form button[disabled] {
+    background-color: #a6a6a6;
+    cursor: none;
 }
 
 

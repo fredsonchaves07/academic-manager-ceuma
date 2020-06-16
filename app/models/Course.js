@@ -1,6 +1,21 @@
 const db = require('../config/db')
 
 module.exports = {
+    confirmDelete(cod, callback){
+        db.query(`SELECT count(students) total_students
+                  FROM courses
+                  INNER JOIN students
+                  ON students.course_cod = courses.cod
+                  WHERE courses.cod = $1
+                  `, [cod], (err, results) => {
+                if(err){
+                    throw 'Database error!'
+                }
+        
+                callback(results.rows[0])
+        })
+    },
+
     all(callback){
         db.query(`SELECT courses.*, count(students) AS total_students
                   FROM courses
@@ -44,9 +59,12 @@ module.exports = {
     },
 
     find(id, callback){
-        db.query(`SELECT * 
-                  FROM courses 
-                  WHERE cod = $1`, [id], (err, results) =>{
+        db.query(`SELECT courses.*, count(students) total_students
+                  FROM courses
+                  LEFT JOIN students
+                  on students.course_cod = courses.cod
+                  WHERE courses.cod = $1
+                  GROUP BY courses.cod`, [id], (err, results) =>{
                     if(err){
                         throw `Database error! ${err}` 
                     }

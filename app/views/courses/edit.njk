@@ -51,8 +51,13 @@
 
         </form>
         <form action="/courses?_method=DELETE" method="post" id="delete-form">
-            <input type="hidden" name="cod" value="{{course.cod}}">
-            <button type="submit" for="delete-form" id="button-delete">Remover Curso</button>
+            {% if course.total_students > 0 %}
+                <button type="submit" for="delete-form" id="button-delete" disabled>Remover Curso</button>
+                <span>Não é possível excluir o curso pois possui {{course.total_students}} aluno(s) cadastrado(s)</span>
+            {% else %}
+                <input type="hidden" name="cod" value="{{course.cod}}">
+                <button type="submit" for="delete-form" id="button-delete">Remover Curso</button>
+            {% endif %}
         </form>
     </section>
     <script>
@@ -64,7 +69,6 @@
                 event.preventDefault()
             }
         })
-
     </script>
 
 {% endblock content %}

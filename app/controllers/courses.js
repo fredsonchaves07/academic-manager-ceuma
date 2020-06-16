@@ -62,8 +62,12 @@ module.exports = {
     },
 
     delete(req, res){
-        Course.delete(req.body.cod, () =>{
-            return res.redirect('/courses')
+        Course.confirmDelete(req.body.cod, (course) =>{
+            if(course.total_students == 0){
+                Course.delete(req.body.cod, () =>{
+                    return res.redirect('/courses')
+                })
+            }
         })
     }
 }
