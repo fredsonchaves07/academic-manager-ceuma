@@ -292,13 +292,44 @@ tbody tr td:last-child a, .table-container >a{
 .table-container thead tr th:last-child, td:last-child{
     text-align: center;
 }
-/*
-.card a{
-    
+
+
+/* Filtros */
+.table-container .header{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     align-items: center;
+    margin-bottom: 32px;
+}
+
+.table-container .header a, 
+.table-container .header button[type="submit"]{
+    background-color: var(--primary-color);
+    padding: 8px 16px;
+    text-decoration: none;
+    color: white;
+    font-size: 12px;
+    border-radius: 4px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    border: 0;
+    cursor: pointer;
     text-align: center;
+}
+
+.table-container .header a{
+    width: 20%
+}
+
+.table-container .header form{
+    display: grid;
+    grid-template-columns: 1fr 120px;
+    align-items: center;
+    grid-gap: 8px;
+}
+
+.table-container .header form input{
+    border: 1px solid #eee;
+    padding: 4px 8px;
     box-sizing: border-box;
 }
-*/
-
-

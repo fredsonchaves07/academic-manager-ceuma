@@ -1,7 +1,16 @@
 {% extends "layout.njk" %}
 {% block content %}
     <div class="table table-container">
-        <a href="/courses/create">Novo Curso</a>
+        <div class="header">
+            <a href="/courses/create" class="button">Novo Curso</a>
+            <form action="/courses" method="GET">
+                <input
+                    type="text"
+                    name="filter"
+                    placeholder="Filtrar por Nome">
+                    <button type="submit">Filtrar</button>
+            </form>
+        </div>
         <table width="100%">
             <thead>
                 <tr>
