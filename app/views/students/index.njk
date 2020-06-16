@@ -11,8 +11,9 @@
                     value="{{filter}}">
                     <button type="submit">Filtrar</button>
             </form>
+            <a download="DataStudents.xls" href="#" onclick="return ExcellentExport.excel(this, 'tbStudent', 'Dados de Estudante');">Exportar</a>
         </div>
-        <table width="100%">
+        <table width="100%" id="tbStudent">
             <thead>
                 <tr>
                     <th>Aluno</th>
@@ -39,4 +40,11 @@
             </tbody>
         </table>
     </div>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/excellentexport@3.4.3/dist/excellentexport.min.js"></script>
+    <script src="http://requirejs.org/docs/release/2.3.6/minified/require.js"></script>
+    <script>
+        require(['dist/excellentexport'], function(ee) {
+            window.ExcellentExport = ee;
+        });
+    </script>
 {% endblock content %}

@@ -302,9 +302,10 @@ tbody tr td:last-child a, .table-container >a{
 /* Filtros */
 .table-container .header{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 100px 1fr 100px;
     align-items: center;
     margin-bottom: 32px;
+    gap: 30px;
 }
 
 .table-container .header a, 
@@ -323,7 +324,7 @@ tbody tr td:last-child a, .table-container >a{
 }
 
 .table-container .header a{
-    width: 20%
+
 }
 
 .table-container .header form{
