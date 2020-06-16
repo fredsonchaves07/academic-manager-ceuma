@@ -15,14 +15,6 @@ module.exports = {
     },
 
     post(req, res){
-        const keys = Object.keys(req.body)
-
-        for (key of keys) {
-            if (req.body[key] == "") {
-                return res.send('Please, fill all fieds')
-            }
-        }
-
         Student.create(req.body, (course) =>{
 
             return res.redirect(`/students`)
@@ -32,18 +24,21 @@ module.exports = {
 
     show(req, res){
         Student.find(req.params.cod, (student) => {
+
             if(!student){
                 return res.send('Student not found!')
             }
 
-            return res.render('students/show', {student})
+            Student.courseSelect((option) => {
+                return res.render('students/show', {student, courses: option})
+            })
+            
         })
     },
 
     edit(req, res){
         Student.find(req.params.cod, (student) => {
             if(!student){
-                
                 return res.send('Student not found!')
             }
 
@@ -53,4 +48,16 @@ module.exports = {
 
         })
     },
+
+    put(req, res){
+        Student.update(req.body, () =>{
+            return res.redirect(`/students`)
+        })
+    },
+
+    delete(req, res){
+        Student.delete(req.body.cod, () =>{
+            return res.redirect('/students')
+        })
+    }
 }

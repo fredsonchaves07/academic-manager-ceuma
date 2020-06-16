@@ -16,8 +16,8 @@ routes.get('/students/:cod', students.show)
 routes.get('/students/:cod/edit', students.edit)
 
 routes.post('/students', students.post)
-/*routes.put('/students', students.put)
-routes.delete('/students', students.delete)*/
+routes.put('/students', students.put)
+routes.delete('/students', students.delete)
 
 
 /* Courses route*/
@@ -29,4 +29,5 @@ routes.get('/courses/:cod/edit', courses.edit)
 routes.post('/courses', courses.post)
 routes.put('/courses', courses.put)
 routes.delete('/courses', courses.delete)
+
 module.exports = routes

@@ -9,7 +9,7 @@ function populateUFs() {
         dataType: 'json',
         success: function(data){
             for(const state of data){
-                ufSelect.innerHTML += `<option value="${state.id}">${state.nome}</option>`
+                ufSelect.innerHTML += `<option value="${state.sigla}">${state.nome}</option>`
             }
         }
     })
@@ -19,7 +19,12 @@ populateUFs()
 
 function getCities(event){
     const citySelect = document.querySelector('[name=city]')
+    const stateInput = document.querySelector("[name=state]")
+
     const ufValue = event.target.value
+
+    const indexOfSelectedState = event.target.selectedIndex
+    stateInput.value = event.target.options[indexOfSelectedState].text
 
     const url = `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${ufValue}/municipios`
 
@@ -31,7 +36,7 @@ function getCities(event){
         type: 'get',
         dataType: 'json',
         success: function(data){
-            for(city of data){
+            for(const city of data){
                 citySelect.innerHTML += `<option value="${city.nome}">${city.nome}</option>`
             }
 
@@ -77,8 +82,10 @@ $(document).ready(function(){
                         type: 'get',
                         dataType: 'json',
                         success: function(data){
-                            ufSelect.innerHTML = `<option value="${data.id}">${data.nome}</option>`
-                            console.log(ufSelect)
+                            ufSelect.innerHTML = `<option value="${data.sigla}">${data.nome}</option>`
+
+                            const stateInput = document.querySelector("[name=state]")
+                            stateInput.value = data.nome
                         }
                     })
                 }

@@ -43,11 +43,18 @@
                     <label for="address">Endereço</label>
                     <div class="fielddata">{{student.address}}</div>
                 </div>
+                {% if student.addressnumber == "" %}
+                    <div class="field">
+                        <label for="addressnumber">Número / Complemento</label>
+                        <div class="fielddata"> - </div>
+                    </div>
+                {% else %}
+                    <div class="field">
+                        <label for="addressnumber">Número / Complemento</label>
+                        <div class="fielddata">{{student.addressnumber}}</div>
+                    </div>
+                {% endif %}
 
-                <div class="field">
-                    <label for="addressnumber">Número / Complemento</label>
-                    <div class="fielddata">{{student.addressnumber}}</div>
-                </div>
             </div>  
 
             <div class="field-group">
@@ -60,7 +67,7 @@
             <div class="field-group">
                 <div class="field">
                     <label for="uf">Estado</label>
-                    <div class="fielddata">{{student.uf}}</div>
+                    <div class="fielddata">{{student.state}}</div>
                 </div>
 
                 <div class="field">
@@ -68,7 +75,22 @@
                     <div class="fielddata">{{student.city}}</div>
                 </div>
             </div>  
-            
+        </fieldset>
+        <fieldset>
+            <legend>
+                <h2>Dados do Curso</h2>
+            </legend>
+            <div class="field-group">
+                <div class="field">
+                    <label for="course">Curso</label>
+                    {% for course in courses %}
+                        {% if course.cod == student.course_cod %}
+                            <div class="fielddata">{{course.coursename}}</div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </fieldset>  
         <a href="/students/{{student.cod}}/edit" class="button">Editar Aluno</a> 
     </section>
 {% endblock content %}

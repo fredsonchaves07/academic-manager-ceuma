@@ -63,6 +63,7 @@
                     <select id="uf" name="uf">
                         <option>Selecione um estado</option>
                     </select>
+                    <input type="hidden" name="state">
                 </div>               
 
                 <div class="field">
@@ -81,11 +82,11 @@
             <div class="field-group">
                 <div class="field">
                     <label for="course">Curso</label>
-                    {% for course in courses %}
-                        <select name="course" required="required">
+                    <select name="course" required="required">
+                        {% for course in courses %}
                             <option id="{{course.cod}}" value="{{course.cod}}">{{course.coursename}}</option>
-                        </select>
-                    {% endfor %}
+                        {% endfor %}
+                    </select>
                 </div>
             </div>
         </fieldset>

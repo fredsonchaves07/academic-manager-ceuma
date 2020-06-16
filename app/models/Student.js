@@ -4,7 +4,7 @@ module.exports = {
     all(callback){
         db.query(`SELECT students.*, courses.coursename
                   FROM students 
-                  INNER JOIN courses 
+                  LEFT JOIN courses 
                   on courses.cod = students.course_cod
                   `, (err, results) => {
             if(err){
@@ -27,10 +27,11 @@ module.exports = {
                 addressnumber,
                 neighborhood,
                 uf,
+                state,
                 city,
                 course_cod,
                 created_at
-            ) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)
+            ) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13)
             RETURNING cod
         `
 
@@ -44,12 +45,11 @@ module.exports = {
             data.addressnumber,
             data.neighborhood,
             data.uf,
+            data.state,
             data.city,
             data.course,
             new Date().toISOString(),
         ]
-
-        console.log(data)
 
         db.query(query, values, (err, results) => {
             if(err){
@@ -74,8 +74,8 @@ module.exports = {
 
     update(data, callback){
         const query = `
-            UPDATE courses SET
-            name = $1
+            UPDATE students SET
+            name = $1,
             cpf = $2,
             email = $3,
             fone = $4,
@@ -84,9 +84,10 @@ module.exports = {
             addressnumber = $7,
             neighborhood = $8,
             uf = $9,
-            city = $10,
-            course_cod = $11,
-            WHERE cod = $12
+            state = $10,
+            city = $11,
+            course_cod = $12
+            WHERE cod = $13
         ` 
 
         const values = [
@@ -99,8 +100,9 @@ module.exports = {
             data.addressnumber,
             data.neighborhood,
             data.uf,
+            data.state,
             data.city,
-            data.course_cod,
+            data.course,
             data.cod,
         ]
 
@@ -120,6 +122,16 @@ module.exports = {
             }
 
             callback(results.rows)
+        })
+    },
+
+    delete(cod, callback){
+        db.query(`DELETE FROM students WHERE cod = $1`, [cod], (err, results) =>{
+            if(err){
+                throw `Database error! ${err}` 
+            }
+
+            callback()
         })
     }
 }

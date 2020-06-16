@@ -50,7 +50,7 @@
                         <label for="addressnumber">Número / Complemento</label>
                         <input id="addressnumber" type="text" name="addressnumber" value="{{student.addressnumber}}">
                     </div>
-
+        
                     <div class="field">
                         <label for="neighborhood">Bairro</label>
                         <input id="neighborhood" type="text" name="neighborhood" required="required" value="{{student.neighborhood}}">
@@ -62,14 +62,15 @@
                     <div class="field">
                         <label for="uf">Estado</label>
                         <select id="uf" name="uf">
-                            <option>{{student.uf}}</option>
+                            <option value="{{student.uf}}">{{student.state}}</option>
                         </select>
+                        <input type="hidden" name="state">
                     </div>               
 
                     <div class="field">
                         <label for="city">Cidade</label>
-                        <select id="city" name="city" disabled="disabled">
-                            <option>{{student.city}}</option>
+                        <select id="city" name="city">
+                            <option value="{{student.city}}">{{student.city}}</option>
                         </select>
                     </div>
                 </div>
@@ -82,11 +83,11 @@
                 <div class="field-group">
                     <div class="field">
                         <label for="course">Curso</label>
-                        {% for course in courses %}
-                            <select name="course" required="required">
+                        <select name="course" required="required">
+                            {% for course in courses %}
                                 <option id="{{course.cod}}" value="{{course.cod}}"{% if course.cod == student.course_cod %}selected{% endif %}>{{course.coursename}}</option>
-                            </select>
-                        {% endfor %}
+                            {% endfor %}
+                        </select>
                     </div>
                 </div>
             </fieldset>
@@ -106,4 +107,16 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
     <script src="../../js/script.js"></script>
+    <script>
+
+        const formDelete = document.getElementById('delete-form')
+        formDelete.addEventListener('submit', function(event){
+            const confirmation = confirm('Deseja deletar?')
+
+            if(!confirmation){
+                event.preventDefault()
+            }
+        })
+
+    </script>
 {% endblock content %}
