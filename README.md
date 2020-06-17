@@ -63,7 +63,7 @@ Perguntas e respostas podem ser encontradas em [Perguntas e Respostas](#postbox-
 
 ##
 
-**Pergunta** Foi aplicado alguma máscara de CPF, Telefone, CEP no cadastro dos dados
+**Pergunta** Foi aplicado alguma máscara de CPF, Telefone, CEP no cadastro dos dados?
 
 **Resposta** Sim, essas features foram aplicadas no projeto com o objetivo de deixar o cadastro mais dinâmico
 
