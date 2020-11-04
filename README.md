@@ -37,8 +37,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias
 
 ## :warning: Requisitos
 
-Para execução do projeto será necessário ter o [Node.js](https://nodejs.org/en/) e um servidor [PostgreSQL](https://www.postgresql.org/) instalado no ambiente
-Perguntas e respostas podem ser encontradas em [Perguntas e Respostas](#postbox-perguntas-e-respostas)
+Para execução do projeto será necessário ter o [Node.js](https://nodejs.org/en/) e um servidor [PostgreSQL](https://www.postgresql.org/) instalado no ambiente. Foi adicionado o [sript](https://github.com/fredsonchaves07/academic-manager-ceuma/blob/master/scripts.sql) para criação do banco de dados e tabelas. Perguntas e respostas podem ser encontradas em [Perguntas e Respostas](#postbox-perguntas-e-respostas)
 
 ## :card_index_dividers: Como Acessar
 
@@ -82,7 +81,7 @@ Perguntas e respostas podem ser encontradas em [Perguntas e Respostas](#postbox-
 ##
 **Pergunta** O que é preciso para conectar no banco de dados?
 
-**Resposta** Será necessário criar as tabelas ``courses`` e ``students`` em um banco de dados
+**Resposta** Será necessário criar as tabelas ``courses`` e ``students`` em um banco de dados. Foi adicionado o script para facilitar a criação do banco e tabelas. O script pode acessado [aqui](https://github.com/fredsonchaves07/academic-manager-ceuma/blob/master/scripts.sql). Além disso, é necessári verificar as credenciais de conexão localizado no arquivo de [configuração](https://github.com/fredsonchaves07/academic-manager-ceuma/blob/master/app/config/db.js)
 
 Alguma dúvida? Abra uma nova [issue](https://github.com/fredsonchaves07/academic-manager-ceuma/issues) e reporte a sua dúvida 
  :smile:
